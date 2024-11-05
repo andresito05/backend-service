@@ -1,23 +1,23 @@
-import  Express, {Application}  from "express";
+import  express, {Application}  from "express";
 import cors from "cors";
 import { AppDataSource } from "./data-source";
 import router from "./Routers/ProductRoutes";
-import swaggerUi from "swagger-ui-express"; 
-import swaggerSpace from "./swagger/swagger";
+import swaggerUI from "swagger-ui-express"; 
+import swaggerSpec from "./swagger/swagger";
 
 
-const app: Application = Express(); 
+const app: Application = express(); 
 const PORT = process.env.PORT ?? 3000; 
 
 // Middleware 
 app.use(cors()); 
-app.use(Express.json());
+app.use(express.json());
 
 //Rutas 
-app.use("/api/",router); // Rutas de productos 
+app.use("/api/Products", router); // Rutas de productos 
 
 //Documentacion swagger 
-app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpace)); 
+app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(swaggerSpec)); 
 
 //Inicializacion de la base de datos y el servidor 
 AppDataSource.initialize()

@@ -43,7 +43,7 @@ export const getProductByID = async(req: Request, res: Response) => {
 export const createProduct = async( req : Request, res : Response ) => {  
     try{ 
         const{name,description,price} = req.body; // sacando los datos del request 
-        const product = new Product (); 
+        const product = new Product(); 
         product.name = name;
         product.description = description; 
         product.price = price; 

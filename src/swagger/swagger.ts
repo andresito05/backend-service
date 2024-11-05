@@ -1,24 +1,23 @@
-import { version } from "os";
-import swaggerJSDoc, { Options} from "swagger-jsdoc";
-const swaggerOptions : Options = { 
-  definition : {
-    openapi : "3.0.0",
-    info : {
-        title : "Backend service API - andres felipe ",
-        version : "1.0.0",
-        description : "API para catalogo de productos "
+import swaggerJsdoc, { Options } from "swagger-jsdoc";
+const swaggerOptions: Options = { 
+  definition: {
+    openapi: "3.0.0",
+    info: {
+        title: "Backend service API - andres felipe ",
+        version: "1.0.0",
+        description: "API para catalogo de productos "
     },
-    server : [
+    server: [
         {
             url :"http://localhost:3000/"
         }
     ]
   },
   apis: [
-    "./src/routers/productRouter.ts"
+    "./src/Routers/ProductRoutes.ts"
   ]
 };
 
-const swaggerSpec = swaggerJSDoc(swaggerOptions); 
+const swaggerSpec = swaggerJsdoc(swaggerOptions); 
 
 export default swaggerSpec; 
